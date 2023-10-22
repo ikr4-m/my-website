@@ -14,7 +14,7 @@ export async function GET() {
 
     const metadata = (file as Record<string, any>).metadata as Omit<Post, 'slug'>
     const slug = path.split('/').slice(3).join('/').slice(0, -3)
-    const post = { ...metadata, slug } satisfies Post
+    const post = { ...metadata, slug } as Post
 
     if (!post.published) return
     posts.push(post)
