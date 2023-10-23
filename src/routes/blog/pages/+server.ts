@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit'
-import type { Post } from '../../app'
+import type { Post } from '../../../app'
 
 export async function GET() {
   const posts: Post[] = []
@@ -20,5 +20,5 @@ export async function GET() {
     posts.push(post)
   })
 
-  return json(posts)
+  return json(posts.sort((first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()))
 }
