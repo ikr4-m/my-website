@@ -5,7 +5,9 @@ date: '2023-05-07'
 thumbnail: '/img/2023-05-07/gpu_passthrough.jpg'
 categories:
   - linux
-  - ffmpeg
+  - virtio
+  - kvm
+  - gpu
 published: true
 ---
 
