@@ -22,7 +22,7 @@
           <img src="/img/portrait.jpg" alt="pict" class="m-auto rounded-full h-1/2 w-1/2">
         </div>
         <p class="text-center pt-5 text-xl font-bold">~ikram</p>
-        <div class="text-center text-sm">Ordinary people that like to destroying someone project and trying weird tech.</div>
+        <div class="text-center text-sm">Ordinary person that like to destroying someone project and trying weird tech.</div>
       </div>
     </div>
 
