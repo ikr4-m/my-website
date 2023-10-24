@@ -38,3 +38,13 @@
   </div>
   <div class="h-px bg-nord-frost-0 mb-4 mx-4"></div>
 {/each}
+
+<p>
+  {#each Array(data.posts.length) as _, i }
+    <button on:click={() => setPage(i)}>{i + 1}</button>
+    {#if (i + 1) < data.posts.length}
+      <span>|</span>
+      <span> </span>
+    {/if}
+  {/each}
+</p>

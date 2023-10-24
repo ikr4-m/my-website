@@ -10,7 +10,7 @@ a {
     color: theme('colors.nord.frost.3');
 }
 
-a:hover {
+a:hover, button:hover {
     background-color: theme('colors.nord.polar.0');
     color: theme('colors.nord.snow.0');
     padding-left: 0.5rem;;
