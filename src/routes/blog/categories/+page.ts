@@ -5,6 +5,8 @@ export async function load({ fetch }) {
   const posts = await res.json() as Post[]
   const categories: string[] = []
 
-  posts.forEach(post => post.categories.forEach(x => categories.push(x)))
+  posts.forEach(post => {
+    post.categories.forEach(v => !categories.includes(v) && categories.push(v))
+  })
   return { categories }
 }
