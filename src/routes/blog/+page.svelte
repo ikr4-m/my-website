@@ -17,7 +17,7 @@
 </svelte:head>
 
 {#each data.posts[page] as post}
-  <div class="grid md:grid-cols-3 grid-cols-1 gap-2 p-4">
+  <div class="grid md:grid-cols-3 grid-cols-1 gap-2 px-4 pt-4">
     <div class="col-span-2">
       <a href="/blog/{post.slug}" class="text-3xl">{post.title}</a>
       <p>{post.description}</p>
@@ -34,6 +34,6 @@
         {/each}
       </p>
     </div>
-    <div class="col-span-3 h-px bg-nord-frost-0"></div>
   </div>
+  <div class="h-px bg-nord-frost-0 mb-4 mx-4"></div>
 {/each}
