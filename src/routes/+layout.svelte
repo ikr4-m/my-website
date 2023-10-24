@@ -1,11 +1,8 @@
 <script lang="ts">
   import type { HeaderFooterMenu, WebsiteNavigator } from '$lib/typing.js';
+  import metadata from '$lib/global/metadata'
   import '$lib/app.css'
-  export let data
-
-  function setHeaderActive(location: WebsiteNavigator): string {
-    return data.metadata.location === location ? 'bg-nord-aurora-0 text-nord-snow-0 px-2' : ''
-  }
+  export const prerender = true
 
   const headerMenu: HeaderFooterMenu[] = [
     {
@@ -48,26 +45,26 @@
 <svelte:head>
   <meta property="theme-color" content="#2E3440">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{data.metadata.title}">
-  <meta property="og:description" content="{data.metadata.description}">
-  <meta property="og:image" content="{data.metadata.image}">
-  <meta property="twitter:title" content="{data.metadata.title}">
-  <meta property="twitter:description" content="{data.metadata.description}">
-  {#if data.metadata.thumbnail}
-    <meta property="twitter:image:src" content="{data.metadata.thumbnail}">
+  <meta property="og:title" content="{$metadata.title}">
+  <meta property="og:description" content="{$metadata.description}">
+  <meta property="og:image" content="{$metadata.image}">
+  <meta property="twitter:title" content="{$metadata.title}">
+  <meta property="twitter:description" content="{$metadata.description}">
+  {#if $metadata.thumbnail}
+    <meta property="twitter:image:src" content="{$metadata.thumbnail}">
   {/if}
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-  <title>Ikram's Website - {data.metadata.title}</title>
+  <title>Ikram's Website - {$metadata.title}</title>
 </svelte:head>
 
 <div class="md:container md:mx-auto md:w-3/4 lg:w-1/2 p-3 text-nord-polar-1 lg:text-xl">
   <!-- Header -->
   <div class="grid md:grid-cols-2 grid-cols-1 md:gap-4 gap-1">
-    <p class="md:text-4xl text-2xl md:text-left text-center text-nord-polar-0">{data.metadata.title}</p>
+    <p class="md:text-4xl text-2xl md:text-left text-center text-nord-polar-0">{$metadata.title}</p>
     <div class="flex">
       <p class="md:ml-auto md:mr-0 m-auto">
         {#each headerMenu as header, i}
-          <a href="{header.link}" class="{setHeaderActive(header.location ?? 'lost')} text-nord-polar-3">{header.name}</a>
+          <a href="{header.link}" class="{$metadata.location === header.location ? 'bg-nord-aurora-0 text-nord-snow-0 px-2' : ''} text-nord-polar-3">{header.name}</a>
           {#if (i + 1) < headerMenu.length}
             <span>/</span>
             <span> </span>

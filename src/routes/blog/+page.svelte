@@ -1,5 +1,10 @@
 <script lang="ts">
+  import metadata from '$lib/global/metadata'
   export let data
+
+  $metadata.title = '~/blog'
+  $metadata.description = 'My "beloved" website'
+  $metadata.location = 'blog'
 </script>
 
 <h1>Ini halaman buat blog</h1>
