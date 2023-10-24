@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit'
-import type { Post } from '../../../app.js'
+import type { Post } from "$lib/typing"
 
 export async function load({ params }) {
   const slug = params.slug as string

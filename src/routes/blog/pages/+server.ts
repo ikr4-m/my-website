@@ -1,5 +1,5 @@
 import { json } from '@sveltejs/kit'
-import type { Post } from '../../../app'
+import type { Post } from "$lib/typing"
 
 export async function GET() {
   const posts: Post[] = []
