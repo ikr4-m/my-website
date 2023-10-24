@@ -13,6 +13,7 @@ export interface WebsiteMetadata {
     title?: string
     description?: string
     image?: string
+	thumbnail?: string
 	location: WebsiteNavigator
 }
 
