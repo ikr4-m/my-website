@@ -76,7 +76,7 @@
   <!-- Footer -->
   <div class="block h-px bg-nord-polar-0 mb-1 mt-5"></div>
   <div class="grid md:grid-cols-2 grid-cols-1 md:gap-4 gap-1 text-sm">
-    <p class="md:text-left text-center text-nord-polar-3">(C) - All right reserved.</p>
+    <p class="md:text-left text-center text-nord-polar-3">(C) 2023 - {new Date().getFullYear()} - Made with ❤️.</p>
     <div class="flex">
       <p class="md:ml-auto md:mr-0 m-auto">
         {#each footerMenu as footer, i}
