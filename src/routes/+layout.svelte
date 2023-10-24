@@ -15,9 +15,13 @@
       location: 'blog'
     },
     {
-      name: 'Porto',
-      link: '/porto',
-      location: 'porto'
+      name: 'Explore',
+      link: '/blog/categories',
+      location: 'categories'
+    },
+    {
+      name: 'Resume',
+      link: 'https://drive.google.com/file/d/1btt2qcbwPxdBY39zpBrnQuctTijZgs5s/view?usp=sharing'
     }
   ]
 

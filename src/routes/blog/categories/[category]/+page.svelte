@@ -2,8 +2,8 @@
   import metadata from '$lib/global/metadata'
   export let data
 
-  $metadata.title = '~/blog'
-  $metadata.location = 'blog'
+  $metadata.title = '~/explore'
+  $metadata.location = 'categories'
 
   let page = 0
   const setPage = (target: number) => page = target

@@ -8,7 +8,7 @@ export interface Post {
 	thumbnail?: string
 }
 
-export type WebsiteNavigator = 'lost' | 'index' | 'porto' | 'blog'
+export type WebsiteNavigator = 'lost' | 'index' | 'blog' | 'categories'
 
 export interface WebsiteMetadata {
     title: string
