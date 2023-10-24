@@ -3,9 +3,15 @@
   export let data
 
   $metadata.title = '~/blog'
-  $metadata.description = 'My "beloved" website'
   $metadata.location = 'blog'
 </script>
+
+<svelte:head>
+  <meta property="og:title" content="{$metadata.title}">
+  <meta property="og:description" content="{$metadata.description}">
+  <meta property="twitter:title" content="{$metadata.title}">
+  <meta property="twitter:description" content="{$metadata.description}">
+</svelte:head>
 
 <h1>Ini halaman buat blog</h1>
 

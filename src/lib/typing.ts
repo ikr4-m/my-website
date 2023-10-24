@@ -5,15 +5,14 @@ export interface Post {
 	date: string
 	categories: string[]
 	published: boolean
+	thumbnail?: string
 }
 
 export type WebsiteNavigator = 'lost' | 'index' | 'porto' | 'blog'
 
 export interface WebsiteMetadata {
-    title?: string
-    description?: string
-    image?: string
-	thumbnail?: string
+    title: string
+    description: string
 	location: WebsiteNavigator
 }
 

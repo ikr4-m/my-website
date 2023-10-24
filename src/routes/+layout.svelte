@@ -1,8 +1,7 @@
 <script lang="ts">
-  import type { HeaderFooterMenu, WebsiteNavigator } from '$lib/typing.js';
+  import type { HeaderFooterMenu } from '$lib/typing.js';
   import metadata from '$lib/global/metadata'
   import '$lib/app.css'
-  export const prerender = true
 
   const headerMenu: HeaderFooterMenu[] = [
     {
@@ -45,14 +44,7 @@
 <svelte:head>
   <meta property="theme-color" content="#2E3440">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{$metadata.title}">
-  <meta property="og:description" content="{$metadata.description}">
-  <meta property="og:image" content="{$metadata.image}">
-  <meta property="twitter:title" content="{$metadata.title}">
-  <meta property="twitter:description" content="{$metadata.description}">
-  {#if $metadata.thumbnail}
-    <meta property="twitter:image:src" content="{$metadata.thumbnail}">
-  {/if}
+  <meta property="og:image" content="/img/b&w.png">
   <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <title>Ikram's Website - {$metadata.title}</title>
 </svelte:head>
