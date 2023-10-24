@@ -13,6 +13,8 @@ published: true
 # Hello
 This is my new blog!
 
+> This should generate a quote
+
 ## Code
 
 ```ts
@@ -23,3 +25,15 @@ console.log('Hello world')
 
 ![my pict](/img/b&w.png)
 This is some picture
+
+# Some table...
+
+Let's try make some table here
+
+| index | value |
+| ----- | :---: |
+| abc | 123 |
+| abc | 123 |
+| abc | 123 |
+| abc | 123 |
+| abc | 123 |

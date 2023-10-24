@@ -19,5 +19,7 @@
   <title>Ikram's Website - {$metadata.title}</title>
 </svelte:head>
 
-<h1>{data.metadata.title}</h1>
-<svelte:component this={data.content} />
+<h1 class="lg:text-5xl md:text-4xl text-3xl font-bold underline mb-4">{data.metadata.title}</h1>
+<div class="main-post-content">
+  <svelte:component this={data.content} />
+</div>

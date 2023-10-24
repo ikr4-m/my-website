@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { HeaderFooterMenu } from '$lib/typing.js';
   import metadata from '$lib/global/metadata'
-  import '$lib/app.css'
+  import '$lib/app.scss'
 
   const headerMenu: HeaderFooterMenu[] = [
     {
