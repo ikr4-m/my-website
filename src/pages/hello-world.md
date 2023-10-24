@@ -4,6 +4,7 @@ description: Hello
 date: '2023-10-23'
 categories:
   - test
+  - testing
 published: true
 ---
 

@@ -1,13 +1,25 @@
 <script lang="ts">
+  import metadata from '$lib/global/metadata'
   export let data
+
+  $metadata.title = '~/blog'
+  $metadata.location = 'blog'
 </script>
 
-<h1>Kategori</h1>
+<svelte:head>
+  <meta property="og:title" content="{$metadata.title}">
+  <meta property="og:description" content="{$metadata.description}">
+  <meta property="twitter:title" content="{$metadata.title}">
+  <meta property="twitter:description" content="{$metadata.description}">
+</svelte:head>
 
-<ul>
-  {#each data.categories as category}
-    <li>
-      <a href="/blog/categories/{category}">{category}</a>
-    </li>
+<p>Categories in this blog:</p>
+<p>
+  {#each data.categories as category, i}
+    <a href="/blog/categories/{category}">{category}</a>
+    {#if (i + 1) < data.categories.length}
+      <span>|</span>
+      <span> </span>
+    {/if}
   {/each}
-</ul>
+</p>
