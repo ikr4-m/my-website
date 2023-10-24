@@ -1,10 +1,7 @@
-import type { WebsiteNavigator } from '$lib/typing.js'
-
 export async function load({ parent }) {
     const metadata = (await parent()).metadata
-    metadata.title = 'Index'
+    metadata.title = '~ikr4m'
+    metadata.location = 'index'
 
-    const navigator: WebsiteNavigator = 'index'
-
-    return { metadata, navigator }
+    return { metadata }
 }

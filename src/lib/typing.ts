@@ -7,10 +7,17 @@ export interface Post {
 	published: boolean
 }
 
+export type WebsiteNavigator = 'lost' | 'index' | 'porto' | 'blog'
+
 export interface WebsiteMetadata {
     title?: string
     description?: string
     image?: string
+	location: WebsiteNavigator
 }
 
-export type WebsiteNavigator = 'lost' | 'index' | 'porto' | 'blog' | 'blog:category'
+export interface HeaderFooterMenu {
+	name: string
+	link: string
+	location?: WebsiteNavigator
+}

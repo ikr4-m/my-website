@@ -1,13 +1,12 @@
-import type { WebsiteMetadata, WebsiteNavigator } from "$lib/typing";
+import type { WebsiteMetadata } from "$lib/typing";
 
 export function load() {
     const metadata: WebsiteMetadata = {
         title: '🤔',
         description: 'Lorem ipsum dolor sit amet.',
-        image: '/img/b&w.png'
+        image: '/img/b&w.png',
+        location: 'lost'
     }
 
-    const navigator: WebsiteNavigator = 'lost'
-
-    return { metadata, navigator }
+    return { metadata }
 }
