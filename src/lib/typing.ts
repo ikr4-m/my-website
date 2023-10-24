@@ -12,3 +12,5 @@ export interface WebsiteMetadata {
     description?: string
     image?: string
 }
+
+export type WebsiteNavigator = 'lost' | 'index' | 'porto' | 'blog' | 'blog:category'
