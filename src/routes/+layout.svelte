@@ -27,16 +27,20 @@
 
   const footerMenu: HeaderFooterMenu[] = [
     {
-      name: 'Facebook',
+      name: 'FB',
       link: 'https://fb.me/ikram.sekai'
     },
     {
-      name: 'Mastodon',
+      name: 'MSTDN',
       link: 'https://mstdn.id/@ikr4m'
     },
     {
-      name: 'Instagram',
+      name: 'IG',
       link: 'https://www.instagram.com/ikr.4m_/'
+    },
+    {
+      name: 'GPG',
+      link: 'https://github.com/ikr4-m.gpg'
     },
     {
       name: 'Mail',
@@ -53,7 +57,7 @@
   <title>Ikram's Website - {$metadata.title}</title>
 </svelte:head>
 
-<div class="md:container md:mx-auto md:w-3/4 lg:w-1/2 p-3 text-nord-polar-1 lg:text-xl">
+<div class="md:container md:mx-auto md:w-3/4 lg:w-1/2 p-3 text-nord-polar-1 xl:text-xl">
   <!-- Header -->
   <div class="grid md:grid-cols-2 grid-cols-1 md:gap-4 gap-1">
     <p class="md:text-4xl text-2xl md:text-left text-center text-nord-polar-0">{$metadata.title}</p>
