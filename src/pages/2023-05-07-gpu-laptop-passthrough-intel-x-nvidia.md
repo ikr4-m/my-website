@@ -56,7 +56,7 @@ For this tutorial, I'm using MSI Katana GF66 11UD with MUXless scheme and using 
 1. A laptop that can support VT-d/VT-g. Some Intel processor above 7th Generation have this feature.
     - Enable the Intel Virtualization in BIOS first before start geeking.
 2. Installing QEMU with virt-manager. You can follow [this tutorial](https://computingforgeeks.com/install-kvm-qemu-virt-manager-arch-manjar/) for the step of installation.
-    - Optional. Install [QEMU Hooks](https://github.com/PassthroughPOST/VFIO-Tools#libvirt_hooks) for binding hooks.
+    - Optional. Install [QEMU Hooks](https://passthroughpo.st/simple-per-vm-libvirt-hooks-with-the-vfio-tools-hook-helper/) for binding hooks.
 3. [virtio-win drivers and guest tools.](https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md) I suggest you to download the ISO file.
 4. [IDDSampleDriver from ge9](https://github.com/ge9/IddSampleDriver). Or wait for Looking Glass make their IDDDriver for safety, ofc.
 5. [Looking Glass, for better gaming.](https://looking-glass.io/)
