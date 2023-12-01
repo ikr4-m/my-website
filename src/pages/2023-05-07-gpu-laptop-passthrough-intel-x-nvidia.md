@@ -65,7 +65,7 @@ For this tutorial, I'm using MSI Katana GF66 11UD with MUXless scheme and using 
 # Script to Install
 *This is for self reminder because I'm always forget what should I've install on it.*
 ```sh
-pacman -S qemu-base virt-manager virt-viewer dnsmasq vde2 bridge-utils
+pacman -S qemu-full virt-manager virt-viewer dnsmasq vde2 bridge-utils
 ```
 
 # Procedure (Preparing VM)
