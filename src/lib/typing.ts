@@ -3,6 +3,7 @@ export interface Post {
 	slug: string
 	description: string
 	date: string
+	last_updated?: string
 	categories: string[]
 	published: boolean
 	thumbnail?: string

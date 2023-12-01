@@ -2,9 +2,21 @@
   import metadata from '$lib/global/metadata'
   export let data
 
+  const localizeDate = (date: string) => {
+    return new Date(date).toLocaleString('en', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    })
+  }
+
   const title = '~/blog'
   $metadata.title = title
   $metadata.location = 'blog'
+
+  const lastUpdate = data.metadata.last_updated
+    ? `. Last update on ${localizeDate(data.metadata.last_updated)}.`
+    : ''
 </script>
 
 <svelte:head>
@@ -20,6 +32,7 @@
 </svelte:head>
 
 <h1 class="lg:text-5xl md:text-4xl text-3xl font-bold underline mb-4">{data.metadata.title}</h1>
+<p>Post from {localizeDate(data.metadata.date)}{lastUpdate}</p>
 <p class="text-center">
   {#each data.metadata.categories as category, i}
     <a href="/blog/categories/{category}">{category}</a>
