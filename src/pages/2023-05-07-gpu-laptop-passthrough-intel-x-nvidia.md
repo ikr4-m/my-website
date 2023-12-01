@@ -180,7 +180,26 @@ looking-glass-client -m 97 -c DXGI
 After that, you can disable your video to None and use Looking Glass to connect to your VM. Don't forget to change your monitor config.
 
 ## Audio & Microphone
-*Still in development*
+To enable audio support add a standard Intel HDA audio device to your configuration.
+1. Search `<audio>` tag if exist and modify to this
+```xml
+<audio id='1' type='spice'/>
+```
+2. Add sound model below the audio tag using this
+```xml
+<sound model='ich9'>
+  <audio id='1'/>
+</sound>
+```
+
+## Clipboard
+We can use SPICE Server to synchronize clipboard using this configuration
+```xml
+<channel type="spicevmc">
+  <target type="virtio" name="com.redhat.spice.0"/>
+  <address type="virtio-serial" controller="0" bus="0" port="1"/>
+</channel>
+```
 
 ## [OPTIONAL] VirtIO FS
 After installing virtio-driver, add `filesystem` hardware with `virtiofs` and specify your location in VM Manager.
