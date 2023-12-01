@@ -3,7 +3,7 @@ title: 'How To: MUXless GPU Passthrough (NVIDIA x Intel Edition)'
 description: 'The most controversional passthrough gaming here'
 date: '2023-05-07'
 last_updated: '2023-12-02'
-thumbnail: '/img/2023-05-07/gpu_passthrough.jpg'
+thumbnail: '/img/2023-05-07/Screenshot_20231201_234332.png'
 categories:
   - linux
   - virtio
@@ -177,7 +177,7 @@ looking-glass-client -m 97 -c DXGI
 1. Save all the folder content on C: because its [hardcoded on the driver](https://github.com/ge9/IddSampleDriver/blob/master/IddSampleDriver/Driver.cpp#L144).
 2. Modify your `option.txt` based on your monitor and frame rate. You can follow the example from that file and change based on your what monitor do you use.
 
-After that, you can disable your video to None.
+After that, you can disable your video to None and use Looking Glass to connect to your VM. Don't forget to change your monitor config.
 
 ## Audio & Microphone
 *Still in development*
