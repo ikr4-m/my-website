@@ -2,6 +2,7 @@
 title: 'How To: MUXless GPU Passthrough (NVIDIA x Intel Edition)'
 description: 'The most controversional passthrough gaming here'
 date: '2023-05-07'
+last_updated: '2023-12-02'
 thumbnail: '/img/2023-05-07/gpu_passthrough.jpg'
 categories:
   - linux
@@ -11,7 +12,7 @@ categories:
 published: true
 ---
 
-![vroom](/img/2023-05-07/gpu_passthrough.jpg)
+![vroom](/img/2023-05-07/Screenshot_20231201_234332.png)
 
 # Table of Contents
 
@@ -49,19 +50,25 @@ For cons:
 - You'll need to change some source code from `envycontrol`.
 
 # My Setup
-For this tutorial, I'm using MSI Katana GF66 11UD with MUXless scheme and using Garuda Linux distributon. For the specs, you can search it in internet.
+For this tutorial, I'm using MSI Katana GF66 11UD with MUXless scheme and using EndeavourOS Galileo distributon. For the specs, you can search it in internet.
 
 # Prerequisites
 1. A laptop that can support VT-d/VT-g. Some Intel processor above 7th Generation have this feature.
     - Enable the Intel Virtualization in BIOS first before start geeking.
 2. Installing QEMU with virt-manager. You can follow [this tutorial](https://computingforgeeks.com/install-kvm-qemu-virt-manager-arch-manjar/) for the step of installation.
-    - After installing QEMU, install [QEMU Hooks](https://computingforgeeks.com/install-kvm-qemu-virt-manager-arch-manjar/) to automate bind/unbind the GPU.
+    - Optional. Install [QEMU Hooks](https://computingforgeeks.com/install-kvm-qemu-virt-manager-arch-manjar/) to automate bind/unbind the GPU.
 3. [virtio-win drivers and guest tools.](https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md) I suggest you to download the ISO file.
-4. [spice-guest-tools.](https://www.spice-space.org/download.html#windows-binaries)
+4. [IDDSampleDriver from ge9](https://github.com/ge9/IddSampleDriver). Or wait for Looking Glass make their IDDDriver for safety, ofc.
 5. [Looking Glass, for better gaming.](https://looking-glass.io/)
-6. [OPTIONAL] [Windows File System Proxy](https://computingforgeeks.com/install-kvm-qemu-virt-manager-arch-manjar/) to connect your local drive to the VM.
+6. Optional. [Windows File System Proxy](https://computingforgeeks.com/install-kvm-qemu-virt-manager-arch-manjar/) to connect your local drive to the VM.
 
-# Procedure
+# Script to Install
+*This is for self reminder because I'm always forget what should I've install on it.*
+```sh
+pacman -S qemu-base virt-manager virt-viewer dnsmasq vde2 bridge-utils
+```
+
+# Procedure (Preparing VM)
 ## Enable Intel IOMMU and Load VFIO Modules
 1. Modify your kernel parameter (usually in `/etc/default/grub` if you using GRUB), and add:
 ```
@@ -135,56 +142,48 @@ And make it sure your GPU using nvidia kernel after rebooting.
 
 Note2: *[Check this out](https://github.com/thatismunn/dotfiles/blob/46cef8ccd5be7096f485c3e650d281f4ec0a5bcc/.localscript/bashrc/alias.d#L17-L19), maybe you can follow my ~~lazy ideas~~.*
 
-## Install KVM
-You can follow the instruction for installation VM from [BlandManStudios video](https://youtu.be/eTWf5D092VY?t=468). Some people don't recommend this video because giving bad information or something. But if you want to see how to install an OS to QEMU, I think you can follow his tutorial.
+## That's it!
+You can install your Windows in normal way. After that, we can move to the next chapter.
 
-For QEMU Hooks, here is some references that I use for my setup. **Don't copy-paste my hooks because maybe my scene is not same as you.**
+# Procedure (Tweaking VM)
+After installing your Windows, now we need to make it "like baremetal" for better gaming experience.
 
-`prepare/begin/start.sh`
-```sh
-#!/bin/bash
-# Helpful to read output when debugging
-set -x
-
-# Stop Cloudflare WARP Service
-systemctl stop warp-svc
-
-# Unbind VTconsole
-echo 0 > /sys/class/vtconsole/vtcon0/bind
-
-# Avoid a Race condition by waiting 2 seconds. This can be calibrated to be shorter or longer if required for your system
-sleep 2
-
-# Unbind the GPU from display driver
-virsh nodedev-detach pci_0000_01_00_0
-
-# Load VFIO Kernel Module  
-modprobe vfio-pci  
-```
-
-`release/end/revert.sh`
-```sh
-#!/bin/bash
-set -x
-
-# Start Cloudflare WARP Service
-systemctl start warp-svc
-
-# Re-Bind GPU to Nvidia Driver
-virsh nodedev-reattach pci_0000_01_00_1
-
-# Rebind VT consoles
-echo 1 > /sys/class/vtconsole/vtcon0/bind
-```
-
+## SPICE & Virtio Guest Tools
 After you install VM. Don't forget to install virtio-driver and spice-guest-tools for better VM QoL.
+
+Switch your video from Bochs/VGA to QXL and display server from Virtio to Spice server.
 
 ## Installing Looking Glass
 You can follow the installation for setup IVSHMEM and KVM Permission from [Looking Glass wiki](https://looking-glass.io/docs/B6/install/) here. Here's some arguments reference to launch looking glass with my scheme:
+```xml
+<!--> Set this above <devices> tag <-->
+<shmem name='looking-glass'>
+  <model type='ivshmem-plain'/>
+  <size unit='M'>32</size>
+</shmem>
+```
+```sh
+# /etc/tmpfiles.d/10-looking-glass.conf
+f /dev/shm/looking-glass 0660 ikr4m kvm -
+```
 ```sh
 # Launching Looking Glass with changing ScrollLock button to RightCtrl
 looking-glass-client -m 97 -c DXGI
 ```
 
+## Installing IDDSampleDriver
+**TODO:** Will be changed to Looking Glass way if they're making the new IDD Driver.
+
+1. Save all the folder content on C: because its [hardcoded on the driver](https://github.com/ge9/IddSampleDriver/blob/master/IddSampleDriver/Driver.cpp#L144).
+2. Modify your `option.txt` based on your monitor and frame rate. You can follow the example from that file and change based on your what monitor do you use.
+
+After that, you can disable your video to None.
+
+## Audio & Microphone
+*Still in development*
+
 ## [OPTIONAL] VirtIO FS
 After installing virtio-driver, add `filesystem` hardware with `virtiofs` and specify your location in VM Manager.
+
+# Finalize
+Go download your favorite game and have fun!
