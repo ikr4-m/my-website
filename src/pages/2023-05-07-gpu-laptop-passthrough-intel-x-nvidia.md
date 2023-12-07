@@ -3,7 +3,6 @@ title: 'How To: MUXless GPU Passthrough (NVIDIA x Intel Edition)'
 description: 'The most controversional passthrough gaming here'
 date: '2023-05-07'
 last_updated: '2023-12-02'
-thumbnail: '/img/2023-05-07/Screenshot_20231201_234332.png'
 categories:
   - linux
   - virtio
