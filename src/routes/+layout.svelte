@@ -31,8 +31,8 @@
       link: 'https://fb.me/ikram.sekai'
     },
     {
-      name: 'MSTDN',
-      link: 'https://mstdn.id/@ikr4m'
+      name: 'FRFSH',
+      link: 'https://infosec.town/@ikr4m'
     },
     {
       name: 'IG',
