@@ -31,8 +31,8 @@
       link: 'https://fb.me/ikram.sekai'
     },
     {
-      name: 'FRFSH',
-      link: 'https://infosec.town/@ikr4m'
+      name: 'X',
+      link: 'https://x.com/d04_1bu'
     },
     {
       name: 'IG',
@@ -44,7 +44,7 @@
     },
     {
       name: 'Mail',
-      link: 'mailto:ikramullahzx@gmail.com'
+      link: 'mailto:contact@ikr4m.my.id'
     },
   ]
 </script>
