@@ -18,28 +18,30 @@ a:hover, button:hover {
 }
 
 .main-post-content {
+    @apply pb-1 text-lg;
+
     h1, h2, h3 {
-        @apply mt-5
+        @apply mt-5;
     }
 
     h1 {
-        @apply text-3xl
+        @apply text-3xl;
     }
 
     h2 {
-        @apply text-2xl
+        @apply text-2xl;
     }
 
     h3 {
-        @apply text-xl
+        @apply text-xl;
     }
 
     ul {
-        @apply list-disc ml-10
+        @apply list-disc ml-10;
     }
 
     ol {
-        @apply list-decimal ml-10
+        @apply list-decimal ml-10 mb-3;
     }
 
     .shiki {
@@ -47,28 +49,35 @@ a:hover, button:hover {
     }
 
     blockquote {
-        @apply p-4 m-3 bg-nord-snow-0 text-nord-polar-3 italic
+        @apply p-4 m-3 bg-nord-snow-0 text-nord-polar-3 italic;
     }
 
     table {
-        @apply table-auto w-full p-2 m-2
+        @apply table-auto w-full p-2 m-2;
     }
 
     table {
         border-collapse: collapse;
 
         td, th {
-            @apply p-2
+            @apply p-2;
         }
 
         tr:hover {
-            @apply bg-nord-polar-3 text-nord-snow-0
+            @apply bg-nord-polar-3 text-nord-snow-0;
         }
 
         td, th {
             border-bottom: 1px solid theme('colors.nord.polar.1');
             border-bottom: 1px solid theme('colors.nord.polar.1');
             border-bottom: 1px solid theme('colors.nord.polar.1');
+        }
+    }
+
+    p {
+        @apply mb-4;
+        code {
+            @apply text-nord-aurora-0;
         }
     }
 }
