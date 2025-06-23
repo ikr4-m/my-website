@@ -1,9 +1,9 @@
-import adapter from '@sveltejs/adapter-auto';
-import Shiki from 'shiki';
-import { escapeSvelte, mdsvex } from 'mdsvex';
+import adapter from '@sveltejs/adapter-auto'
+import Shiki from 'shiki'
+import { escapeSvelte, mdsvex } from 'mdsvex'
 import RemarkToc from 'remark-toc'
 import RehypeSlug from 'rehype-slug'
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOpetions = {
